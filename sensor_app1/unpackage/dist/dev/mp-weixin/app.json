@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/main_page",
+    "pages/index/node_page",
+    "pages/index/person_page",
+    "pages/index/data_analyze",
+    "pages/index/warning_page"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

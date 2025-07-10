@@ -1,0 +1,1 @@
+"use strict";const t=require("../../common/vendor.js"),e={data:()=>({title:"你好",details:"终于对齐了"}),onLoad(){},methods:{}};const o=t._export_sfc(e,[["render",function(e,o,r,n,s,a){return{a:t.t(s.title),b:t.t(s.details)}}]]);wx.createPage(o);

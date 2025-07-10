@@ -1,0 +1,83 @@
+
+.wrap.data-v-dad362b1 {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+.page-title.data-v-dad362b1 {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin: 20rpx 0;
+  text-align: center;
+}
+
+/* 设备选择器样式 */
+.device-selector.data-v-dad362b1 {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+  padding: 15rpx 20rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 5rpx 15rpx -3rpx rgba(0, 0, 0, 0.1);
+  width: 96%;
+}
+.device-selector text.data-v-dad362b1 {
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.picker.data-v-dad362b1 {
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  background-color: white;
+}
+.chart-container.data-v-dad362b1 {
+  width: 96%;
+  margin: 15rpx 0;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 5rpx 15rpx -3rpx rgba(0, 0, 0, 0.1);
+  padding: 15rpx;
+}
+.temp-chart-container.data-v-dad362b1, .humi-chart-container.data-v-dad362b1, .caroo-chart-container.data-v-dad362b1 {
+  width: 100%;
+  height: 300rpx;
+}
+.echart-container.data-v-dad362b1, .echart-canvas.data-v-dad362b1 {
+  width: 100%;
+  height: 100%;
+}
+.chart-title.data-v-dad362b1 {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+button.data-v-dad362b1 {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin: 20rpx 0;
+  width: 96%;
+}
+.error-message.data-v-dad362b1 {
+  font-size: 24rpx;
+  color: #ef4444;
+  margin: 15rpx 0;
+  padding: 15rpx 20rpx;
+  background-color: #fee2e2;
+  border-radius: 10rpx;
+  width: 96%;
+  text-align: center;
+}

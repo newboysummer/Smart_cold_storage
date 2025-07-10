@@ -1,0 +1,25 @@
+{
+  "hash": "2c98cce9",
+  "configHash": "3f03000e",
+  "lockfileHash": "e8bdf2d2",
+  "browserHash": "51f5e4c6",
+  "optimized": {
+    "echarts": {
+      "src": "../../../../../node_modules/echarts/index.js",
+      "file": "echarts.js",
+      "fileHash": "f5ec0609",
+      "needsInterop": false
+    },
+    "lodash-es": {
+      "src": "../../../../../node_modules/lodash-es/lodash.js",
+      "file": "lodash-es.js",
+      "fileHash": "31ea4869",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-CSAU5B4Q": {
+      "file": "chunk-CSAU5B4Q.js"
+    }
+  }
+}

@@ -1,0 +1,244 @@
+
+	/* 引入外部CSS */
+	/* ==============================
+   全局样式与变量定义
+   ============================== */
+:root {
+    --primary-color: #1e3a8a;      /* 深蓝主色 - 用于标题和主要强调 */
+    --card-bg: white;              /* 卡片背景色 */
+    --text-dark: #1e293b;          /* 深色文本 - 用于重要数据 */
+    --text-medium: #475569;        /* 中等文本 - 用于次要内容 */
+    --text-light: #64748b;         /* 浅色文本 - 用于辅助信息 */
+    --temp-color: #ef4444;         /* 温度颜色 - 红色系 */
+    --humi-color: #3b82f6;         /* 湿度颜色 - 蓝色系 */
+    --caroo-color: #10b981;        /* 二氧化碳颜色 - 绿色系 */
+    --button-bg: var(--primary-color); /* 按钮背景色 */
+    --button-text: white;          /* 按钮文本颜色 */
+    --button-hover-bg: #25449d;    /* 按钮悬停背景色 */
+}
+	/* ==============================
+   页面整体布局
+   ============================== */
+.wrap {
+    padding: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;            /* 确保容器至少占满屏幕高度 */
+    background-color: #f8fafc;    /* 浅灰色背景 */
+}
+.page-title {
+    font-size: 48rpx;
+    font-weight: bold;
+    color: var(--primary-color);  /* 使用主色调 */
+    margin-bottom: 40rpx;
+    text-shadow: 1rpx 1rpx 2rpx rgba(0,0,0,0.1);  /* 轻微文字阴影 */
+}
+	/* ==============================
+   卡片容器布局
+   ============================== */
+.dev-vessel {
+    display: grid;                /* 使用Grid布局实现灵活的卡片排列 */
+    grid-template-columns: repeat(auto-fit, minmax(320rpx, 1fr));
+    gap: 40rpx;                   /* 卡片之间的间距 */
+    max-width: 1200rpx;           /* 最大宽度限制 */
+    width: 100%;
+    margin-bottom: 40rpx;         /* 按钮与卡片容器的间距 */
+}
+	/* ==============================
+   卡片样式
+   ============================== */
+.dev-card {
+    /* 增加卡片高度，确保有足够空间展示历史数据 */
+    min-height: 350rpx; 
+    width: 100%;
+    border-radius: 24rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);  /* 卡片背景色 */
+    box-shadow: 0 10rpx 25rpx -5rpx rgba(0, 0, 0, 0.1), 0 8rpx 10rpx -6rpx rgba(0, 0, 0, 0.05);  /* 精细阴影 */
+    transition: all 0.3s ease;     /* 平滑过渡效果 */
+    position: relative;
+    overflow: hidden;
+}
+	/* 卡片悬停效果 - 提升交互体验 */
+.dev-card:hover {
+    transform: translateY(-5rpx);  /* 向上微移 */
+    box-shadow: 0 20rpx 25rpx -5rpx rgba(0, 0, 0, 0.1), 0 10rpx 10rpx -5rpx rgba(0, 0, 0, 0.04);  /* 加深阴影 */
+}
+	/* 卡片顶部渐变条 - 区分不同类型的卡片 */
+.dev-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10rpx;
+}
+	/* 不同卡片的渐变条颜色 */
+.dev-card:nth-child(1)::before { background: linear-gradient(90deg, var(--temp-color), #dc2626);
+}
+	/* 温度 - 红色系 */
+.dev-card:nth-child(2)::before { background: linear-gradient(90deg, var(--humi-color), #2563eb);
+}
+	/* 湿度 - 蓝色系 */
+.dev-card:nth-child(3)::before { background: linear-gradient(90deg, var(--caroo-color), #059669);
+}
+	/* 二氧化碳 - 绿色系 */
+	/* ==============================
+   卡片内容样式
+   ============================== */
+.dev-header {
+    display: flex;
+    align-items: center;
+    gap: 15rpx;
+}
+.dev-name {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: var(--text-medium);    /* 中等深度文本 */
+}
+.dev-logo {
+    height: 40rpx;
+    width: 40rpx;
+    margin-top: 0;
+    filter: drop-shadow(0 1rpx 2rpx rgba(0,0,0,0.1));  /* 图标阴影 */
+}
+.dev-data {
+    font-size: 56rpx;
+    font-weight: bold;
+    color: var(--text-dark);      /* 深色文本突出数据 */
+    margin-top: 10rpx;
+    text-shadow: 1rpx 1rpx 2rpx rgba(0,0,0,0.1);  /* 轻微文字阴影 */
+}
+	/* 数值变化动画 */
+.number-animation {
+    transition: all 0.5s ease-out;  /* 平滑过渡效果 */
+}
+	/* ==============================
+   加载状态样式
+   ============================== */
+.loading-placeholder {
+    height: 220rpx;
+    width: 100%;
+    border-radius: 24rpx;
+    background-color: white;
+    box-shadow: 0 10rpx 25rpx -5rpx rgba(0, 0, 0, 0.1);
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;  /* 呼吸动画 */
+}
+@keyframes pulse {
+0%, 100% { opacity: 1;
+}
+50% { opacity: 0.6;
+}
+}
+	/* ==============================
+   错误提示样式
+   ============================== */
+.error-message {
+    font-size: 28rpx;
+    color: var(--temp-color);     /* 使用红色提示错误 */
+    margin-top: 30rpx;
+    padding: 20rpx 30rpx;
+    background-color: #fee2e2;    /* 浅红色背景 */
+    border-radius: 16rpx;
+}
+	/* ==============================
+   按钮样式
+   ============================== */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 12rpx;
+    padding: 20rpx 40rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 10rpx 25rpx -5rpx rgba(0, 0, 0, 0.1), 0 8rpx 10rpx -6rpx rgba(0, 0, 0, 0.05);
+}
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+	/* 历史数据折叠面板样式 */
+.history-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15rpx;
+        padding: 10rpx;
+        color: #64748b;
+        font-size: 24rpx;
+        cursor: pointer;
+        transition: all 0.3s ease;
+}
+.history-toggle:hover {
+        color: #334155;
+}
+.expand-icon {
+        width: 24rpx;
+        height: 24rpx;
+        margin-left: 10rpx;
+        transition: transform 0.3s ease;
+}
+.history-panel {
+        width: 90%;
+        margin-top: 15rpx;
+        padding: 15rpx;
+        background-color: rgba(0,0,0,0.03);
+        border-radius: 12rpx;
+        /* 增加最大高度和溢出滚动 */
+        max-height: 200rpx; 
+        overflow-y: auto;
+}
+.history-chart {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 120rpx;
+        width: 100%;
+        margin-bottom: 15rpx;
+}
+.history-point {
+        width: 16rpx;
+        border-radius: 4rpx;
+        transition: all 0.5s ease;
+}
+.history-list {
+        display: flex;
+        flex-direction: column;
+}
+.history-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8rpx 0;
+        border-bottom: 1rpx solid rgba(0,0,0,0.05);
+}
+.history-item:last-child {
+        border-bottom: none;
+}
+.history-value {
+        font-weight: 500;
+}
+	/* ==============================
+   响应式设计
+   ============================== */
+	/* 小屏幕设备调整 */
+@media (max-width: 768rpx) {
+.dev-vessel {
+        grid-template-columns: 1fr;  /* 单列布局 */
+        max-width: 400rpx;
+}
+.page-title {
+        font-size: 40rpx;
+}
+}
+	/* 大屏幕设备调整 */
+@media (min-width: 1200rpx) {
+.dev-vessel {
+        grid-template-columns: repeat(3, 1fr);  /* 三列布局 */
+}
+}

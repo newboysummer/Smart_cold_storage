@@ -1,0 +1,41 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/main_page",
+			"style": {
+				"navigationBarTitleText": "工业物联网传感网关系统"
+			}
+		},
+		{
+		    "path": "pages/index/node_page",
+		    "style": {
+		        "navigationBarTitleText": "冷库环境实时监测数据"
+		    }
+		},
+		{
+		    "path": "pages/index/person_page",
+		    "style": {
+		    "navigationBarTitleText": "个人中心"
+	    }
+		    },
+		{
+		    "path": "pages/index/data_analyze",
+		    "style": {
+		    "navigationBarTitleText": "数据分析"
+		}
+		    },
+		{
+		    "path": "pages/index/warning_page",
+		    "style": {
+		    "navigationBarTitleText": "告警中心"
+		}
+		    }
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}
